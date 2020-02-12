@@ -1,15 +1,13 @@
 package org.example;
 
-import java.util.Scanner;
-
 public class Chess {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Please enter board size: ");
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++)
+
+    private int x;
+    private int y;
+
+    public void greedBuild (){
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++)
                 if ((i + j) % 2 == 0)
                     System.out.print("* ");
                 else
@@ -17,4 +15,13 @@ public class Chess {
             System.out.println();
         }
     }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
 }
