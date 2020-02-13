@@ -13,21 +13,24 @@ public class Main {
                 "Letter or Chess. Type the full program name: ");
         option = sc.nextLine();
 
+//        switch (option.toLowerCase()){
+//            case "triangle":
+//
+//                break;
+//        }
         if ("triangle".equals(option.toLowerCase())) {
             // call triangle
         } else if ("letter".equals(option.toLowerCase())){
             //call letter
         } else if ("chess".equals(option.toLowerCase())){
-            Chess chess = new Chess();
+            Chess chess = new Chess(); // create additional class with scanner + exception
             sc = new Scanner(System.in);
-            System.out.print("Please enter board height (x): ");
-            int x = sc.nextInt();
-            chess.setX(x);
+            System.out.print("Please enter board height (x): "); // create additional class with text for user
+            int height = sc.nextInt();
             sc = new Scanner(System.in);
             System.out.print("Please enter board width (y): ");
-            int y = sc.nextInt();
-            chess.setY(y);
-            chess.greedBuild();
+            int weight = sc.nextInt();
+            chess.greedBuild(height, weight);
         } else {
             System.out.println("Not valid option, bye");
         }
