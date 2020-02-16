@@ -7,33 +7,39 @@ public class Main {
     public static void main(String[] args) {
 
         String option;
+        String proceed = "Yes";
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Hello, User! Please make a choice, you can start program Triangle, " +
-                "Letter or Chess. Type the full program name: ");
-        option = sc.nextLine();
+        while (proceed == "Yes") {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Hello, User! Please make a choice, you can start program Triangle, " +
+                    "Letter or Chess. Type the full program name: ");
+            option = sc.next();
+            sc.close();
+            switch (option.toLowerCase()) {
+                case "triangle":
+                    //call triangle
+                    break;
 
-//        switch (option.toLowerCase()){
-//            case "triangle":
-//
-//                break;
-//        }
-        if ("triangle".equals(option.toLowerCase())) {
-            // call triangle
-        } else if ("letter".equals(option.toLowerCase())){
-            //call letter
-        } else if ("chess".equals(option.toLowerCase())){
-            Chess chess = new Chess(); // create additional class with scanner + exception
-            sc = new Scanner(System.in);
-            System.out.print("Please enter board height (x): "); // create additional class with text for user
-            int height = sc.nextInt();
-            sc = new Scanner(System.in);
-            System.out.print("Please enter board width (y): ");
-            int weight = sc.nextInt();
-            chess.greedBuild(height, weight);
-        } else {
-            System.out.println("Not valid option, bye");
+                case "letter":
+                    //call letter
+                    break;
+
+                case "chess":
+                    Chess chess = new Chess();
+                    ReadInput readInput = new ReadInput();
+                    readInput.setText("Enter chess board dimensions, divided by coma: ");
+                    String[] data = readInput.getParam().split(", ");
+                    int height = Integer.parseInt(data[0]);
+                    int weight = Integer.parseInt(data[1]);
+                    chess.greedBuild(height, weight);
+                    break;
+
+                default:
+                    System.out.println("Not valid option");
+                    break;
+            }
+
+            proceed = "Yes";
         }
-        sc.close();
     }
 }
