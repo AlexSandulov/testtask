@@ -15,7 +15,6 @@ public class ReadInput {
         Scanner sci = new Scanner(System.in);
         System.out.println(text);
         this.param = sci.nextLine();
-        sci.close();
         return param;
     }
 }
