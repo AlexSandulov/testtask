@@ -5,46 +5,61 @@ import java.util.Scanner;
 import static java.lang.StrictMath.round;
 
 public class Triangle {
-    public static void main(String[] args) {
+
+    private String name;
+    private double sideA;
+    private double sideB;
+    private double sideC;
+    private double square;
+
+
+    public void TriangleCalculate(String name, double sideA, double sideB, double sideC) {
         String result = "";
         String exit;
+        Scanner scan = new Scanner(System.in);
         do {
-            System.out.print("Please, enter information about first triangle - name, a_side_" +
-                    "length, b_side_length, c_side_length: ");
-            Scanner sc = new Scanner(System.in);
-            String input = sc.nextLine();
-            String[] data = input.split(", ");
             if (result.length() > 0) {
                 result += "\r\n";
             }
-            String name = data[0];
-            double a = Double.parseDouble(data[1]);
-            double b = Double.parseDouble(data[2]);
-            double c = Double.parseDouble(data[3]);
-            double square = squareCalc(a, b, c);
+            double square = squareCalc(sideA, sideB, sideC);
             result += "[Triangle " + name + "]: " + square + " cm";
             if (square > 0) {
                 System.out.println("Do you want to enter new triangle? (yes/no)");
             } else {
                 System.out.println("Entered dimensions are not correct");
-            }
-            exit = sc.next();
-        } while (exit.equals("y") || exit.equals("yes"));
+            } exit = scan.next();
+        } while ("yes".equalsIgnoreCase(exit));
         displayResult(result);
     }
 
-    public static double squareCalc(double a, double b, double c) {
-        double p = p(a, b, c);
-        double sqrt = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    public double squareCalc(double sideA, double sideB, double sideC) {
+        double p = p(sideA, sideB, sideC);
+        double sqrt = Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
         return round(sqrt * 100) / 100.0;
     }
 
-    private static final double p(double a, double b, double c) {
-        return (a + b + c) / 2;
+    private final double p(double sideA, double sideB, double sideC) {
+        return (sideA + sideB + sideC) / 2;
     }
 
-    public static void displayResult(String result) {
+    public void displayResult(String result) {
         System.out.println("============= Triangles list: ===============");
         System.out.println(result);
+    }
+
+    public void setSideA(double sideA) {
+        this.sideA = sideA;
+    }
+
+    public void setSideB(double sideB) {
+        this.sideB = sideB;
+    }
+
+    public void setSideC(double sideC) {
+        this.sideC = sideC;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

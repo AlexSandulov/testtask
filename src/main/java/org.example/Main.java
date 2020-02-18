@@ -16,20 +16,35 @@ public class Main {
             option = sc.next();
             switch (option.toLowerCase()) {
                 case "triangle":
-                    //call triangle
+                    Triangle triangle = new Triangle();
+                    ReadInput readTriangle = new ReadInput();
+                    readTriangle.setText("Please, enter information about first triangle - name, a_side_length, " +
+                            "b_side_length, c_side_length: ");
+                    String[] dataTriangle = readTriangle.getParam().split(", ");
+                    triangle.TriangleCalculate(dataTriangle[0], Double.parseDouble(dataTriangle[1]),
+                            Double.parseDouble(dataTriangle[2]), Double.parseDouble(dataTriangle[3]));
                     break;
 
                 case "letter":
-                    //call letter
+                    Letter letter = new Letter();
+                    ReadInput readLetter = new ReadInput();
+                    readLetter.setText("Please enter dimensions (HxW) for the envelopes in format XX.XX, " +
+                            "first two chars are for First envelope, other two chars are for the Second envelope: ");
+                    String[] dataLetter = readLetter.getParam().split(", ");
+                    double letterOneSideOne = Double.parseDouble(dataLetter[0]);
+                    double letterOneSideTwo = Double.parseDouble(dataLetter[1]);
+                    double letterTwoSideOne = Double.parseDouble(dataLetter[2]);
+                    double letterTwoSideTwo = Double.parseDouble(dataLetter[3]);
+                    letter.Calculate(letterOneSideOne, letterOneSideTwo, letterTwoSideOne, letterTwoSideTwo);
                     break;
 
                 case "chess":
                     Chess chess = new Chess();
-                    ReadInput readInput = new ReadInput();
-                    readInput.setText("Enter chess board dimensions, divided by coma: ");
-                    String[] data = readInput.getParam().split(", ");
-                    int height = Integer.parseInt(data[0]);
-                    int weight = Integer.parseInt(data[1]);
+                    ReadInput readChess = new ReadInput();
+                    readChess.setText("Enter chess board dimensions, divided by coma: ");
+                    String[] dataChess = readChess.getParam().split(", ");
+                    int height = Integer.parseInt(dataChess[0]);
+                    int weight = Integer.parseInt(dataChess[1]);
                     chess.getGreed(height, weight);
                     break;
 

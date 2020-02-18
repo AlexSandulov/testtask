@@ -1,32 +1,45 @@
 package org.example;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Letter {
-    public static void main(String[] args) {
-        String exit;
+
+    private String exit;
+    private double letterOneSideOne;
+    private double letterOneSideTwo;
+    private double letterTwoSideOne;
+    private double letterTwoSideTwo;
+
+    public void Calculate(double letterOneSideOne, double letterOneSideTwo,
+                          double letterTwoSideOne, double letterTwoSideTwo) {
+        Scanner scan = new Scanner(System.in);
         do {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Please enter dimensions (HxW) for the envelopes, first two chars are for First envelope, other two " +
-                    "chars are for the Second envelope: ");
-            try {
-                double a = sc.nextDouble();
-                double b = sc.nextDouble();
-                double c = sc.nextDouble();
-                double d = sc.nextDouble();
-                if (a > c && b > d) {
-                    System.out.println("Second Envelope could be placed inside the First Envelope");
-                } else if (a < c && b < d) {
-                    System.out.println("First Envelope could be placed inside the Second Envelope");
-                } else {
-                    System.out.println("Envelopes cannot be placed in each other");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Input is not a number");
+            if (letterOneSideOne > letterTwoSideOne && letterOneSideTwo > letterTwoSideTwo) {
+                System.out.println("Second Envelope could be placed inside the First Envelope");
+            } else if (letterOneSideOne < letterTwoSideOne && letterOneSideTwo < letterTwoSideTwo) {
+                System.out.println("First Envelope could be placed inside the Second Envelope");
+            } else {
+                System.out.println("Envelopes cannot be placed in each other");
             }
             System.out.print("Do you want to continue? (y/n): ");
-            exit = sc.next();
-        }while (!exit.equals("n"));
+            exit = scan.next();
+        } while (!exit.equals("n"));
+        scan.close();
+    }
+
+    public void setLetterOneSideOne(double letterOneSideOne) {
+        this.letterOneSideOne = letterOneSideOne;
+    }
+
+    public void setLetterOneSideTwo(double letterOneSideTwo) {
+        this.letterOneSideTwo = letterOneSideTwo;
+    }
+
+    public void setLetterTwoSideOne(double letterTwoSideOne) {
+        this.letterTwoSideOne = letterTwoSideOne;
+    }
+
+    public void setLetterTwoSideTwo(double letterTwoSideTwo) {
+        this.letterTwoSideTwo = letterTwoSideTwo;
     }
 }
