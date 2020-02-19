@@ -17,12 +17,7 @@ public class Main {
             switch (option.toLowerCase()) {
                 case "triangle":
                     Triangle triangle = new Triangle();
-                    ReadInput readTriangle = new ReadInput();
-                    readTriangle.setText("Please, enter information about first triangle - name, a_side_length, " +
-                            "b_side_length, c_side_length: ");
-                    String[] dataTriangle = readTriangle.getParam().split(", ");
-                    triangle.TriangleCalculate(dataTriangle[0], Double.parseDouble(dataTriangle[1]),
-                            Double.parseDouble(dataTriangle[2]), Double.parseDouble(dataTriangle[3]));
+                    triangle.TriangleCalculate();
                     break;
 
                 case "letter":

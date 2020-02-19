@@ -13,14 +13,22 @@ public class Triangle {
     private double square;
 
 
-    public void TriangleCalculate(String name, double sideA, double sideB, double sideC) {
+    public void TriangleCalculate() {
         String result = "";
         String exit;
         Scanner scan = new Scanner(System.in);
         do {
+            ReadInput readTriangle = new ReadInput();
+            readTriangle.setText("Please, enter information about first triangle - name, a_side_length, " +
+                    "b_side_length, c_side_length: ");
+            String[] data = readTriangle.getParam().split(", ");
             if (result.length() > 0) {
                 result += "\r\n";
             }
+           setName(data[0]);
+            setSideA(Double.parseDouble(data[1]));
+            setSideB(Double.parseDouble(data[2]));
+            setSideC(Double.parseDouble(data[3]));
             double square = squareCalc(sideA, sideB, sideC);
             result += "[Triangle " + name + "]: " + square + " cm";
             if (square > 0) {
@@ -62,4 +70,5 @@ public class Triangle {
     public void setName(String name) {
         this.name = name;
     }
+
 }
