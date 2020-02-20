@@ -16,7 +16,7 @@ public class Main {
             option = sc.next();
             switch (option.toLowerCase()) {
                 case "triangle":
-                    Triangle triangle = new Triangle();
+                    Triangle triangle = new Triangle(); // add parse and read utility class
                     triangle.TriangleCalculate();
                     break;
 
