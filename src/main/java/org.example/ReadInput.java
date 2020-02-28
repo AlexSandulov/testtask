@@ -12,9 +12,15 @@ public class ReadInput {
     }
 
     public String getParam() {
+        while (true){
         Scanner sci = new Scanner(System.in);
         System.out.println(text);
         this.param = sci.nextLine();
-        return param;
+        if (param.contains(", ")){
+            return param;
+        } else {
+            System.out.println("Not valid data");
+        }
+        }
     }
 }

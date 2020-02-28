@@ -11,12 +11,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         while ("yes".equalsIgnoreCase(proceed)) {
-            System.out.print("Hello, User! Please make a choice, you can start program Triangle, " +
+            Greetings greetings = new Greetings();
+            greetings.greetings("Hello, User! Please make a choice, you can start program Triangle, " +
                     "Letter or Chess. Type the full program name: ");
             option = sc.next();
             switch (option.toLowerCase()) {
                 case "triangle":
-                    Triangle triangle = new Triangle(); // add parse and read utility class
+                    Triangle triangle = new Triangle();
                     triangle.TriangleCalculate();
                     break;
 
