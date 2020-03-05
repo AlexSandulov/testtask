@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="GoogleSuite" parallel="classes" thread-count="5">
+<!--    <test name="GoogleTests" thread-count="3">-->
+<!--        <classes>-->
+<!--            <class name="com.softserve.edu.SelenideTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+        <test name="ByPackage">
+            <packages>
+                <package name="org.example"/>
+            </packages>
+        </test>
+</suite>

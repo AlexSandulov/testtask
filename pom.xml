@@ -36,6 +36,19 @@
                 <target>13</target>
             </configuration>
         </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+<!--            <version>3.0.0-M4</version>-->
+            <configuration>
+<!--                <systemPropertyVariables>-->
+<!--                    <webdriver.chrome.driver>c:/tools/selenium/chromedriver.exe</webdriver.chrome.driver>-->
+<!--                </systemPropertyVariables>-->
+                <suiteXmlFiles>
+                    <suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>
+                </suiteXmlFiles>
+            </configuration>
+        </plugin>
     </plugins>
     </build>
 

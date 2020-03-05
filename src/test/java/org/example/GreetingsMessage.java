@@ -11,7 +11,7 @@ public class GreetingsMessage {
         Greetings greetings = new Greetings();
         greetings.greetings("Hello, User! Please make a choice, you can start program Triangle, \\\" +\\n\" +\n" +
                 "                \"                    \\\"Letter or Chess. Type the full program name: ");
-        assertEquals(greetings.getText(),"Hello1, User! Please make a choice, you can start program Triangle, \" +\n" +
+        assertEquals(greetings.getText(),"Hello, User! Please make a choice, you can start program Triangle, \" +\n" +
                 "                    \"Letter or Chess. Type the full program name: ");
     }
 }
